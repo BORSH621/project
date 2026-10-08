@@ -56,3 +56,7 @@ pip install -r requirements.txt
 
 ## Изменение из пункта 11
  Новый текст
+
+## Навигация
+- [Коммиты](https://github.com/BORSH621/project/commits/main/)
+- [Wiki](https://github.com/BORSH621/project/wiki)
