@@ -53,3 +53,5 @@ pip install -r requirements.txt
 [MIT](LICENSE)
 
 Новая ветка в проекте
+
+## Изменение из пункта 11
