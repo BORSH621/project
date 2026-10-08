@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Colab
+.ipynb_checkpoints/
+
+# Сырые данные
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+*.csv
+!data/**/*.md
+
+# Модели и артефакты
+models/*.h5
+models/*.keras
+*.ckpt
+
+# Локальные настройки и секреты
+.env
+config/local.*
