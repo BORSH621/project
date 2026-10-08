@@ -51,3 +51,5 @@ pip install -r requirements.txt
 ## Лицензия
 
 [MIT](LICENSE)
+
+Новая ветка в проекте
