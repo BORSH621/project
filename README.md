@@ -40,6 +40,20 @@ Python · Pandas · NumPy · Matplotlib/Plotly · TensorFlow/Keras · Google Col
 | `docs/` | Архитектура решения |
 | `config/` | Конфигурация |
 
+## Definition of Done
+Задача переносится в Done при выполнении:
+1.  Код и ревью: Прошел Code Review, влит в `main`.
+2.  Тестирование: Тесты пройдены без ошибок.
+3.  Метрики: Качество зафиксировано в `reports/`.
+4.  Документация: Обновлены README/Wiki.
+5.  Приёмка: Принято ролью PO+TW.
+
+## Настройка процессов
+Этапы: Backlog -> Todo -> In Progress -> Testing / QA -> Done.
+
+## Роли
+PO+TW, SM, DE+ML, DEV+QA, Эксперты.
+
 ## Как запустить
 
 ```bash
