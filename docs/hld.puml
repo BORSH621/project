@@ -1,0 +1,51 @@
+@startuml
+title WeatherLSTM — HLD (component diagram)
+
+actor "Пользователь\n(курьер, таксист,\nлогист, агроном)" as User
+actor "Аналитик /\nML-инженер" as Analyst
+actor "Администратор" as Admin
+
+rectangle "WeatherLSTM" {
+  component "Интерфейс прогноза\n(CLI / ноутбук / графики)\nsrc/predict.py" as UI
+  component "Predictor\nпрогноз на 72 ч\nsrc/predict.py" as Predictor
+  component "Model Trainer\nLSTM, TensorFlow/Keras\nsrc/model.py" as Trainer
+  component "Preprocessor\nочистка, нормализация, окна\nsrc/data_loader.py" as Prep
+  component "Data Loader\nCSV и API\nsrc/data_loader.py" as Loader
+  component "Config\nconfig/" as Config
+  component "Evaluator\nметрики, отчёты\nreports/" as Eval
+}
+
+database "Сырые данные\ndata/raw/" as Raw
+database "Подготовленные данные\ndata/processed/" as Processed
+database "Хранилище моделей\nmodels/" as Models
+
+cloud "API погоды\n(например, Open-Meteo)" as WeatherAPI
+cloud "Google Colab\n(GPU для обучения)" as Colab
+cloud "GitHub\n(код, Wiki, Issues, CI)" as GitHub
+
+User --> UI : запрос прогноза
+Admin --> Config : выбор активной модели
+Admin --> Models : версии, откат
+Analyst --> Trainer : запуск обучения
+Analyst --> Loader : загрузка данных
+Analyst --> Eval : оценка качества
+
+UI --> Predictor
+Predictor --> Models : загрузка весов
+Predictor --> Loader : последние наблюдения
+Predictor --> Config
+
+Loader --> WeatherAPI : HTTPS
+Loader --> Raw
+Prep --> Raw
+Prep --> Processed
+Trainer --> Processed
+Trainer --> Models : сохранение весов
+Trainer --> Config
+Trainer ..> Colab : запуск в ноутбуке
+Eval --> Models
+Eval --> Processed
+
+Analyst ..> GitHub : push, PR, review
+Admin ..> GitHub : релизы, доступы
+@enduml
