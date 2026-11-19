@@ -26,7 +26,7 @@ https://github.com/BORSH621/project/wiki
 
 ## Технологии
 
-Python · Pandas · NumPy · Matplotlib/Plotly · TensorFlow/Keras · Google Colab
+Python · Pandas · NumPy · Matplotlib/Plotly · Google Colab
 
 ## Структура репозитория
 
